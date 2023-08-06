@@ -96,7 +96,7 @@ function PoolTokenModal() {
         <header className="flex items-center mb-5">
           <h3 className="ml-auto text-white">Select a Token</h3>
           <div
-            className="ml-auto cursor-pointer"
+            className="ml-auto cursor-pointer text-white"
             onClick={() => dispatch(removePoolTokenModal())}
           >
             <AiOutlineClose />
@@ -113,7 +113,7 @@ function PoolTokenModal() {
             onChange={filterThroughToken}
             className="bg-gray-300 w-full h-[56px] rounded-lg pl-3 pr-9 outline-none"
           />z
-          <i className="absolute right-2 top-1/2 -translate-y-1/2 text-[24px]">
+          <i className="absolute right-2 top-7 -translate-y-1/2 text-[24px]">
             <AiOutlineSearch />
           </i>
         </div>
@@ -130,15 +130,15 @@ function PoolTokenModal() {
         </h3>
 
         <div className="flex gap-3 flex-wrap mb-10 mx-auto w-full">
-          <div className="flex items-center justify-center w-[27%] bg-gray-300 rounded-xl py-2">
+          <div className="flex items-center justify-center w-[27%] bg-gray-300 rounded-xl cursor-pointer py-2">
             {' '}
             <div className="w-5 h-5 bg-[#1C3738] mr-2"></div> ETH
           </div>
-          <div className="flex items-center justify-center w-[27%] bg-gray-300 rounded-lg">
+          <div className="flex items-center justify-center w-[27%] bg-gray-300 rounded-xl cursor-pointer">
             {' '}
             <div className="w-5 h-5 bg-[#1C3738] mr-2"></div> WETH
           </div>
-          <div className="flex items-center justify-center w-[27%] bg-gray-300 rounded-lg">
+          <div className="flex items-center justify-center w-[27%] bg-gray-300 rounded-xl cursor-pointer">
             {' '}
             <div className="w-5 h-5 bg-[#1C3738] mr-2"></div> STORM
           </div>

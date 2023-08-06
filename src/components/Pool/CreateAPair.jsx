@@ -167,7 +167,7 @@ function CreateAPair({ addLiquidity }) {
           !inputs.token1?.includes(' ')
             ? 'h-[520px]'
             : 'h-[432px]'
-        } px-3 sm:px-[24px] pt-[24px] pb-[32px] bg-[#152F30] rounded-[8px] m-auto`}
+        } px-3 sm:px-[24px] pt-[24px] pb-[32px] bg-purple-900 rounded-xl text-white m-auto`}
       >
         <header className="flex items-center mb-2 justify-between">
           <i
@@ -195,7 +195,7 @@ function CreateAPair({ addLiquidity }) {
                 value={inputs.token1}
                 onChange={updateInputs}
                 placeholder="0"
-                className="w-[50%] sm:w-[230px] pr-[8%] sm:pr-[25px] bg-[#152F30] outline-none text-[20px] sm:text-[34px]"
+                className="w-[50%] sm:w-[230px] pr-[8%] sm:pr-[25px] bg-purple-900 outline-none text-[20px] sm:text-[34px]"
               />
 
               <div
@@ -224,9 +224,7 @@ function CreateAPair({ addLiquidity }) {
           </div>
 
           <div className="bg-white h-[2px] my-7 flex items-center justify-end">
-            <button className="bg-[#1B595B] w-[40px] h-[40px] rounded-full flex items-center justify-center cursor-pointer">
-              <BsArrowDownUp />
-            </button>
+            
           </div>
 
           <div>
@@ -239,7 +237,7 @@ function CreateAPair({ addLiquidity }) {
                 onChange={updateInputs}
                 id=""
                 placeholder="0"
-                className="w-[50%] sm:w-[230px] pr-2 bg-[#152F30] outline-none text-[20px] sm:text-[34px]"
+                className="w-[50%] sm:w-[230px] pr-2 bg-purple-900 outline-none text-[20px] sm:text-[34px]"
               />
 
               {secondInputToken.address ? (
@@ -264,14 +262,14 @@ function CreateAPair({ addLiquidity }) {
                 </div>
               ) : (
                 <button
-                  className="flex items-center text-[#011718] bg-[#69CED1] w-[170px] h-[48px] justify-center rounded-[100px] hover:opacity-70 cursor-pointer"
+                  className="flex items-center text-[#011718] bg-gray-300 w-[170px] h-[48px] justify-center rounded-xl hover:opacity-70 cursor-pointer"
                   onClick={() => {
                     dispatch(showPoolTokenModal());
                     dispatch(setPoolTokenType('second'));
                   }}
                 >
                   Select a Token{' '}
-                  <i className="ml-2 text-white">
+                  <i className="ml-2 text-purple-800">
                     <AiOutlineDown />
                   </i>
                 </button>
@@ -322,7 +320,7 @@ function CreateAPair({ addLiquidity }) {
             Supply
           </button>
         ) : (
-          <button className="text-[#1B595B] h-[48px] w-full max-w-[384px] sm:w-[384px] bg-[#1C3738] block m-auto mt-7 rounded-[100px] cursor-not-allowed">
+          <button className="text-purple-900 h-[48px] w-full max-w-[384px] sm:w-[384px] bg-gray-300 block m-auto mt-7 rounded-xl cursor-not-allowed">
             Invalid Pair
           </button>
         )}
