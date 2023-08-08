@@ -7,12 +7,13 @@ import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyDmcF4MDogqOH8NXodu5yD_kU01Ft5y3Nk',
-  authDomain: 'xeleron-456d0.firebaseapp.com',
-  projectId: 'xeleron-456d0',
-  storageBucket: 'xeleron-456d0.appspot.com',
-  messagingSenderId: '260861227603',
-  appId: '1:260861227603:web:e99c4ac622acfc94258ca6',
+  apiKey: 'AIzaSyDQG_174LeVH80FzAJqHnsNUJ0iT1Ktnd4',
+  authDomain: 'stormdex.firebaseapp.com',
+  projectId: 'stormdex',
+  storageBucket: 'stormdex.appspot.com',
+  messagingSenderId: '615275682998',
+  appId: '1:615275682998:web:f22e71c258225b76d05a17',
+  measurementId: 'G-VKVFK3RQNK',
 };
 
 // Initialize Firebase

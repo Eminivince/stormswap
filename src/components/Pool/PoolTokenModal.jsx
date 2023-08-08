@@ -88,6 +88,40 @@ function PoolTokenModal() {
       dispatch(selectTokenForSecondInput(token));
     dispatch(removePoolTokenModal());
   }
+  const commonBasesToken = [
+    {
+      address: '0x5b641458717a0acB5Bf73e4A803F0a8460c3c82c',
+      decimals: 18,
+      logo: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/info/logo.png',
+      name: 'Ethereum',
+      symbol: 'ETH',
+    },
+    {
+      address: '0x5b641458717a0acB5Bf73e4A803F0a8460c3c82c',
+      decimals: 18,
+      logo: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/info/logo.png',
+
+      name: 'Wrapped Ether',
+      symbol: 'WETH',
+    },
+    {
+      address: '0x5b641458717a0acB5Bf73e4A803F0a8460c3c82c',
+      decimals: 18,
+      logo: 'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/info/logo.png',
+
+      name: 'Storm',
+
+      symbol: 'STORM',
+    },
+  ];
+  const { address } = useAccount();
+  async function handleCommonBaseSelect(token) {
+    const tokenContract = new ethers.Contract(token.address, erc20ABI, signer);
+    const res = await tokenContract.balanceOf(address);
+    const b = Number(ethers.utils.formatUnits(res, 18));
+    const decimals = await tokenContract.decimals();
+    selectToken({ ...token, balance: b, decimals });
+  }
 
   return (
     <div className="">
@@ -112,7 +146,8 @@ function PoolTokenModal() {
             value={searchToken.filteredToken}
             onChange={filterThroughToken}
             className="bg-gray-300 w-full h-[56px] rounded-lg pl-3 pr-9 outline-none"
-          />z
+          />
+          z
           <i className="absolute right-2 top-7 -translate-y-1/2 text-[24px]">
             <AiOutlineSearch />
           </i>
@@ -129,19 +164,16 @@ function PoolTokenModal() {
           )}
         </h3>
 
-        <div className="flex gap-3 flex-wrap mb-10 mx-auto w-full">
-          <div className="flex items-center justify-center w-[27%] bg-gray-300 rounded-xl cursor-pointer py-2">
-            {' '}
-            <div className="w-5 h-5 bg-[#1C3738] mr-2"></div> ETH
-          </div>
-          <div className="flex items-center justify-center w-[27%] bg-gray-300 rounded-xl cursor-pointer">
-            {' '}
-            <div className="w-5 h-5 bg-[#1C3738] mr-2"></div> WETH
-          </div>
-          <div className="flex items-center justify-center w-[27%] bg-gray-300 rounded-xl cursor-pointer">
-            {' '}
-            <div className="w-5 h-5 bg-[#1C3738] mr-2"></div> STORM
-          </div>
+        <div className="flex gap-3 mb-10 mx-auto w-full">
+          {commonBasesToken.map((token, i) => (
+            <div
+              key={i}
+              onClick={() => handleCommonBaseSelect(token)}
+              className="flex items-center justify-center w-full bg-gray-300 rounded-xl cursor-pointer py-2"
+            >
+              <div className="w-5 h-5 bg-[#1C3738] mr-2"></div> {token.name}
+            </div>
+          ))}
         </div>
 
         <div id="hide-scroll" className="mb-3 h-full overflow-y-scroll">
